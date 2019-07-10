@@ -1,0 +1,145 @@
+/*RESET*/
+*, *:before, *:after{margin:0; padding: 0;box-sizing: border-box; -webkit-box-sizing: border-box;}
+body{font-family: 'Lato', sans-serif; }
+input, select, iframe, button { border: none; font-family: 'Lato', sans-serif;}
+h1, h2, h3{margin:0; padding: 0;}
+ol, ul{list-style: none;}
+a{text-decoration: none; color: inherit; }
+a:hover{transition: all .4s ease-in-out;}
+img{max-width: 100%; border: none;}
+
+/*GERAIS*/
+.section{float: left; width: 100%; margin-top: 30px;}
+.container{ width: 90%; max-width: 1100px; margin: 0 auto;}
+.row{float: left; width: 100%;}
+.inner-title{font-size: 18px; line-height: 22px; font-weight: bold;color: #2E8B57;}
+
+/*HEADER*/
+.header{width: 100%; height: 60px; padding: 15px 0; background-image: url(../images/bg-money.jpg); z-index: 6; transition: all .5s ease-in-out; -webkit-transition: all .5s ease-in-out;}
+.header .header-title{text-shadow: 2px 2px #000;color: #66CDAA; font-size: 20px; display: inline-block;}
+.header-navegacao figure{height: 50px;}
+.header .logo img{max-width: 72px; height: 50px;}
+.header-navegacao{height: 50px; margin-top: 10px; border: 1px solid #fff; background:#5F9EA0; display: flex; justify-content: space-between; align-items: center;box-shadow: 5px 6px #000;}
+.header.fixed{background: #2c3e50; padding: 10px 0 5px 0;}
+.header .nav ul li{color: #008080;font-weight: bold;}
+
+/*TRANSACOES*/
+main{margin-top: 40px;}
+.transacoes{background:#fff;}
+.transacoes form label{display: block; width: 100%; padding-bottom: 8px; color: #333333; line-height: 22px; font-size: 14px;color: #2E8B57;font-weight: bold;}
+.transacoes .transacoes-input{display: inline-block; width: 100%; margin-bottom: 24px; border: 1px solid #2E8B57; border-radius: 5px; -webkit-border-radius: 5px; color: #333333; line-height: 22px; font-size: 14px; height: 30px;padding-left: 10px;color: #2E8B57;outline: none;}
+.transacoes .transacoes-input:nth-of-type(2){margin-bottom: 19px;}
+.transacoes .transacoes-input.btn-adicionar{background: #333333; color: #fff; border: 1px solid #2E8B57; text-align: center; padding: 0;}
+
+
+/*EXTRATOS*/
+.extrato .extrato-table{width: 100%; margin: 24px 0; border-spacing: 0; border-collapse: unset; font-size: 14px;}
+.extrato .extrato-table th,td{border-bottom: 2px solid #2E8B57; text-align: left;}
+.extrato .extrato-table th{padding-bottom: 7px;color:#1f3c58; }
+.extrato .extrato-table th:last-of-type{padding-right: 33px; text-align: right;}
+.extrato .extrato-table td{padding: 11px 0;}
+.extrato .extrato-table td:first-of-type{font-weight: bold; padding:0 11px;}
+.extrato .extrato-table td:last-of-type{text-align: right;}
+.extrato .extrato-table tr:nth-of-type(3) td{border: none;}
+.extrato .extrato-table tfoot{margin-top: 5px;}
+.extrato .extrato-table tfoot td{font-weight: bold; border-bottom: none; border-top: 4px double #2E8B57;padding: 11px 0 0;}
+.extrato .extrato-total span{font-size: 11px;}
+
+.extrato .extrato-table .compra{color:red; font-size: 22px;}
+.extrato .extrato-table .venda{color:green; font-size: 19px;}
+
+.extrato .extrato-table tfoot tr.status td:last-of-type{border: none; padding: 0;}
+.extrato-lucro{color: green;}
+.extrato-prejuizo{color: red;}
+.none{display: none;}
+.footer{width: 100%; position: fixed;bottom: 0;background: #1f3c58;color: #ebebeb;padding: 15px 0;text-align: center;font-weight: 100;}
+
+
+
+/*breackpoints maximos*/
+@media (max-width: 900px){
+  /*menu*/
+  .nav-close{
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .nav-toggle .fa-bars{padding: 9px;}
+  .header .nav.active{
+    right: 0;
+  }
+  .header .nav ul{margin-top: 72px;}
+  .header .nav ul li{text-align: right; padding: 6px 0; font-size: 16px; font-weight: 600; }
+  .header .nav ul li:hover{background: #c4c4c4; color: #333333; }
+  .header .nav ul li a{padding-right: 20px;}
+  .header .nav p{position: absolute; top: 20px; left: 20px;}
+  .header .nav {
+    background: #333333;
+    color: #fff;
+    width: 350px;
+    height: 100%;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    z-index: 10;
+    transition: right .7s ease-in-out;
+  }
+}
+
+@media (max-width: 767.9px){
+  /*transacoes*/
+  .transacoes:after{content: ""; border: 1px solid #2E8B57; width: 90%; margin:0 auto; height: 1px; display: block; }
+}
+
+/*breackpoints minimos*/
+@media (min-width: 768px){
+  /*extrato*/
+  .extrato .extrato-table th:last-of-type{padding: 0;}
+
+  /*transações*/
+  .transacoes .transacoes-box{width: 25%; float: left;}
+  .transacoes .transacoes-box:nth-of-type(2){width: 46%; float: left; margin:0 2%;}
+  .transacoes form{margin-top: 26px;}
+  .transacoes .container{padding: 25px 20px 20px; border: 5px solid #2E8B57; border-radius: 5px; -webkit-border-radius: 5px;}
+  .transacoes .transacoes-box-button{width: 100%; display: inline-block;}
+  .transacoes .transacoes-input.btn-adicionar{width: 32%; float: right;cursor: pointer;}
+
+  /*menu*/
+  .header .nav {width: 252px;cursor: pointer;}
+}
+
+@media (min-width: 901px){
+  /*transações*/
+  .transacoes h2{color: #2E8B57;}
+  .transacoes .transacoes-box{width: 100%; float: left;}
+  .transacoes .transacoes-box:nth-of-type(2){width: 100%; margin:0;}
+  .transacoes form{margin-top: 26px;}
+  .transacoes .container{padding: 25px 20px 20px; border: 5px solid #2E8B57; border-radius: 5px; -webkit-border-radius: 5px;}
+  .transacoes .transacoes-box-button{width: 100%; display: inline-block;}
+  .transacoes .transacoes-input.btn-adicionar{width: 100%; margin-bottom: 0;background: #5F9EA0;}
+  .transacoes .transacoes-input.btn-adicionar:focus{border:2px solid #000;}
+
+
+  /*extrato*/
+  .extrato{width: 65%; }
+  .transacoes{width: 35%; }
+  .transacoes > .container{width: 100%;}
+  .extrato > .container{width: 96%; margin-right: 0; margin-left: 22px; float: right;}
+
+
+  /*header*/
+  .header-navegacao{justify-content: start;}
+  .header-navegacao .fa-bars, .header-navegacao .fa-times{display: none;}
+  .header-navegacao .header-title{padding-left: 20px; width: 100%;}
+  .header .nav{width: 100%; display: inline-table; max-width: 350px; background: #fff; padding: 10.5px 0;}
+  .header .nav ul li{display: inline-block; padding: 0 17px; }
+  .header .nav ul li:nth-of-type(2){border-right: 1px solid #2E8B57; border-left: 1px solid #2E8B57;}
+
+}
+
+/*AUXILIARES*/
+.text-center{text-align: center;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.fl-left{float: left;}
+.fl-right{float: right;}
+::-webkit-input-placeholder  { color:#2E8B57; }

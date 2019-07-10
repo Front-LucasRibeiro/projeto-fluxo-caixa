@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="public/stylesheets/style-geral.css">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+  <!-- start header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-navegacao">
+        <div class="logo fl-left">
+          <figure>
+            <a href="">
+              <img src="public/images/fluxo-caixa.jpg" alt="Fluxo de Caixa" title="Logo">
+            </a>
+          </figure>
+        </div>
+        
+        <h1 class="header-title">Fluxo de Caixa</h1>
+
+        <a href="" class="nav-toggle fl-right">
+          <i class="fas fa-bars"></i>
+        </a>
+
+        <nav class="nav fl-right">
+          <p class="text-left">
+            <span class="nav-close">
+              <i class="fa fa-times"></i>
+            </span>
+          </p>
+          <ul>
+            <li><a href="">Resumo</a></li>
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Configurações</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- end header -->
+  
+  <main>
+    <div class="container">
+      <!-- start secao transacoes -->
+      <section class="section transacoes">
+        <div class="container">
+          <h2 class="text-center inner-title">Nova transação</h2>
+
+          <form action="/cadastro-transacao" method="POST" name="formTransacoes" id="formTransacoes">
+            <div class="transacoes-box">
+              <label for="tipoTransacao">Tipo de transação</label>
+              <select name="tipoTransacao" id="tipoTransacao" class="transacoes-input">
+                <option value="-">Compra</option>
+                <option value="+">Venda</option>
+              </select>
+            </div>
+
+            <div class="transacoes-box">
+              <label for="nomeTransacao">Nome da transação</label>
+              <input type="input" id="nomeTransacao" class="transacoes-input" required autofocus>
+            </div>
+
+            <div class="transacoes-box">
+              <label for="valorTransacao">Valor</label>
+              <input type="text" id="valorTransacao" class="transacoes-input dinheiro" placeholder="R$ 0,00" required>
+            </div>
+
+            <div class="transacoes-box-button">
+              <input type="submit" value="Adicionar transação" class="transacoes-input btn-adicionar">
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- end secao transacoes -->
+
+      <!-- start secao extrato -->
+      <section class="section extrato">
+        <div class="container">
+          <h2 class="text-center inner-title">Extrato de transações</h2>
+          <div id="transacoesView"></div>
+        </div>
+      </section>
+      <!-- end secao extrato -->
+    </div>
+  </main>
+  <footer class="footer container-fluid">
+    <span><a href="http://front-lucasribeiro.16mb.com/" target="_blank">® 2019 - Lucas Desenvolvimento Web</a></span>
+  </footer>
+
+  <script src="models/Transacao.js"></script>
+  <script src="controllers/TransacaoController.js"></script>
+  <script src="models/ListaTransacoes.js"></script>
+  <script src="views/TransacoesView.js"></script>
+  <script src="../public/javascripts//main.js"></script>
+  <script>
+    // instanciando controlller para toda aplicacao
+    let transacaoController = new TransacaoController();
+
+    // chamando metodo adiciona quando form ser enviado
+    document.forms["formTransacoes"].addEventListener('submit', () => transacaoController.adiciona(event)); 
+  </script>
+</body>
+</html>
